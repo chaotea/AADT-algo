@@ -13,10 +13,15 @@ def main():
     dances = parse_dances(args.dances_file)
 
     algorithm = AADT(dancers, dances)
-    algorithm.phase_1()
-    algorithm.export_assignments("phase1.xlsx")
-    algorithm.phase_2()
-    algorithm.export_assignments("phase2.xlsx")
+    # algorithm.phase_1()
+    # algorithm.export_assignments("phase1.xlsx")
+    # algorithm.phase_2()
+    # algorithm.export_assignments("phase2.xlsx")
+
+    algorithm.phase_3()
+    algorithm.compute_stats()
+    algorithm.export_assignments("assignments.xlsx")
+
 
 if __name__ == "__main__":
     main()
