@@ -38,13 +38,6 @@ def parse_preferences(csv_path: str) -> list[Dancer]:
     dancers = []
     df = pd.read_csv(csv_path)
     df.rename(columns={"How many dances would you like to join?": "Dances"}, inplace=True)
-    df.rename(columns={"If you are NOT accepted into Flagship / BEYOND, how many dances would you like to join?": "dances_1"}, inplace=True)
-    df.rename(columns={"If you are accepted into Flagship / BEYOND, how many additional dances would you like to join?": "dances_2"}, inplace=True)
-    df["Dances"] = df[["Dances", "dances_1", "dances_2"]].max(axis=1)
-    df.drop(columns=["dances_1", "dances_2"], inplace=True)
-
-    df["Dances"] = df["Dances"].fillna(1)
-    df.dropna(how="all", inplace = True) 
 
     for index, row in df.iterrows():
         preferences = row[3:].dropna().tolist()
