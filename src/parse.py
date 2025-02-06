@@ -42,7 +42,7 @@ def parse_preferences(csv_path: str) -> list[Dancer]:
     df.rename(columns={"If you are accepted into Flagship / BEYOND, how many additional dances would you like to join?": "dances_2"}, inplace=True)
     df["Dances"] = df[["Dances", "dances_1", "dances_2"]].max(axis=1)
     df.drop(columns=["dances_1", "dances_2"], inplace=True)
-    print(df.columns)
+
     df["Dances"] = df["Dances"].fillna(1)
     df.dropna(how="all", inplace = True) 
 
