@@ -116,11 +116,11 @@ class AADT:
         # Create graph
         graph = nx.DiGraph()
         graph.add_node("source", demand=-self.num_dancers)
-        graph.add_node("sink", demand=self.num_dancers)
+        graph.add_node("sink", demand=(self.num_dancers - 10*self.num_dances))
 
         # Create nodes for dances
         for dance in self.dances:
-            graph.add_node(dance.name)
+            graph.add_node(dance.name, demand=10)
             graph.add_edge(dance.name, "sink", capacity=dance.max_capacity)
 
         # Create nodes for dancers
